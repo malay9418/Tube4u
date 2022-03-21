@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block body %}
+       <style>
+         .media {
+           background-color: black;
+           width: 100%;
+           display: flex;
+           color: white;
+           justify-content: center;
+           align-items: center;
+           border-radius: 10px;
+           padding: 5px;
+           margin-top: 10px;
+           height: 50px;
+         }
+         .download-text {
+           margin-right: 10px;
+         }
+         .download-button {
+           background-color: red;
+           border: none;
+           color: white;
+           padding: 10px;
+           cursor: pointer;
+           border-radius: 10px;
+           height: 40px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+         }
+         .download-button:hover {
+           background-color:#aa2929;
+         }
+         .make {
+           width: 100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+         }
+       </style>
+       <!--Main content-->
+        <main class="mb-4 main-container" id="main-content">
+          <img class="image" src="{{data.img}}">
+          <div class="videoTitle">
+            {{data.title}}
+          </div>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                      <!--write content-->
+                      <div class="media" id="video-head">
+                        <h4>Videoes</h4>
+                      </div>
+                      {% for item in data.video %}
+                      <div class="media">
+                        <div class="make">
+                          <p>{{item.res}} | {{item.size}}</p>
+                        </div>
+                        <button class="download-button" onclick="download('mp4',{{item.itag}});">
+                          <i class="fa fa-download"></i>
+                          <p>Download</p>
+                        </button>
+                      </div>
+                      {% endfor%}
+                      <div class="media" id="audio-head">
+                        <h4>Audioes</h4>
+                      </div>
+                      {% for item in data.audio %}
+                      <div class="media">
+                        <div class="make">
+                          <p>{{item.res}} | {{item.size}}</p>
+                        </div>
+                        <button class="download-button" onclick="download('mp3',{{item.itag}});">
+                          <i class="fa fa-download"></i>
+                          <p>Download</p>
+                        </button>
+                      </div>
+                      {% endfor%}
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script>
+          function download(ext,itag) {
+            location.href = `/media/?url={{data.url}}&itag=${itag}&fileName={{data.name}}&ext=${ext}`;
+          };
+        </script>
+{% endblock %}

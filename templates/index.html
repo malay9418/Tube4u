@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+       <style>
+         .title {
+           
+         }
+       </style>
+       <!--Main content-->
+        <main class="mb-4 main-container" id="main-content">
+          <img class="image" src="{{url_for('static', filename='img/bg.jpg')}}">
+          <div class="videoTitle">
+            <h1>Tube4U</h1>
+          </div>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                      <!--write content-->
+                      <h1> </h1>
+                      <h4>Use:</h4>
+                      <ul>
+                        <li>Paste any youtube video URL in the search box</li>
+                        <li>Click on the search button</li>
+                        <li>Select by file size and quality</li>
+                        <li>Click on the download button</li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+{% endblock %}
