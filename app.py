@@ -61,7 +61,7 @@ def home():
 			data["img"] = yt.thumbnail_url
 			return render_template("final.html", data=data)
 		except Exception as e:
-			return render_template("invalid.html"), 404	
+			return f"{e}"	
 		
 #about
 @app.route("/about/")
