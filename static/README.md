@@ -1,1 +1,1 @@
-[file](Tube4u/templates/final.html)
+[file](templates/final.html)
